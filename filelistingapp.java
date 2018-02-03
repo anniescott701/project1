@@ -39,7 +39,14 @@ public class filelistingapp {
 	public static void getList(String dir) {
 		File list[] = new File(dir).listFiles();
 		for (File file : list)
-			System.out.println(file);
+			if(file.isFile())
+			{
+			System.out.println("filename"+file.getName()+"-----------------filepath:"+file.getAbsolutePath());
+			}
+			else
+			{
+				getList(file.getAbsolutePath());
+			}
 	}
 
 	public static void readFile(String dir) {
